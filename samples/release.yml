@@ -1,0 +1,41 @@
+name: Create Release
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [closed]
+  issue_comment:
+    types: [created]
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Create Release PR
+        if: github.event_name == 'push'
+        uses: MateSousa/create-release@v0.0.1
+        with:
+          repo_owner: MateSousa
+          repo_name: create-release
+          base_branch: master
+          target_branch: release
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Bot running
+        if: github.event_name == 'pull_request' || github.event_name == 'issue_comment'
+        uses: MateSousa/create-release-bot@v0.0.1
+        with:
+          repo_owner: MateSousa
+          repo_name: create-release
+          base_branch: master
+          target_branch: release
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_event: ${{ toJson(github.event) }}
