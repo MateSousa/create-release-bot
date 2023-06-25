@@ -22,7 +22,7 @@ inputs:
     default: ${{ github.event }}
 runs:
   using: 'docker'
-  image: 'docker://docker.hub/MateSousa/create-release-bot:latest'
+  image: 'docker://docker.hub/matesousa/create-release-bot:latest'
   env:
     INPUT_REPO_OWNER: ${{ inputs.repo_owner }}
     INPUT_REPO_NAME: ${{ inputs.repo_name }}
