@@ -27,4 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: MateSousa/create-release-bot:latest
+          tags: matesousa/create-release-bot:latest
