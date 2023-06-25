@@ -30,3 +30,6 @@ runs:
     INPUT_TARGET_BRANCH: ${{ inputs.target_branch }}
     INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
     INPUT_GITHUB_EVENT: ${{ inputs.github_event }}
+branding:
+  icon: 'git-pull-request'
+  color: 'blue'
