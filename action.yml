@@ -1,5 +1,5 @@
 name: 'Create Release Bot'
-description: 'Create a release bot for your repository'
+description: 'Create a release bot for your repository to manage your releases'
 inputs:
   repo_owner:
     description: 'The owner of the repository'
