@@ -59,8 +59,8 @@ func IssueEvent(client *github.Client, env initializers.Env, event *github.Issue
 			return err
 		}
 
-		// sleep for 40 seconds
-		time.Sleep(40 * time.Second)
+		// sleep for 15 seconds to wait for changelog commit to be created
+		time.Sleep(15 * time.Second)
 
 		// Aprove Merge
 		err = ApproveMerge(client, env, event)
