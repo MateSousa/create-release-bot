@@ -1,0 +1,32 @@
+name: 'Create Release Bot'
+description: 'Create a release bot for your repository'
+inputs:
+  repo_owner:
+    description: 'The owner of the repository'
+    required: true
+  repo_name:
+    description: 'The name of the repository'
+    required: true
+  base_branch:
+    description: 'The base branch to create the pull request against'
+    required: true
+  target_branch:
+    description: 'The target branch for the pull request'
+    required: true
+  github_token:
+    description: 'GitHub token with repo access'
+    required: true
+  github_event:
+    description: 'GitHub event'
+    required: true
+    default: ${{ github.event }}
+runs:
+  using: 'docker'
+  image: 'docker://docker.hub/MateSousa/create-release-bot:latest'
+  env:
+    INPUT_REPO_OWNER: ${{ inputs.repo_owner }}
+    INPUT_REPO_NAME: ${{ inputs.repo_name }}
+    INPUT_BASE_BRANCH: ${{ inputs.base_branch }}
+    INPUT_TARGET_BRANCH: ${{ inputs.target_branch }}
+    INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+    INPUT_GITHUB_EVENT: ${{ inputs.github_event }}
