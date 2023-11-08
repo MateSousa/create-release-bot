@@ -14,5 +14,5 @@ require (
 	golang.org/x/net v0.16.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
-	gorm.io/gorm v1.25.1
+	gorm.io/gorm v1.25.5
 )
